@@ -11,7 +11,13 @@ namespace UF2218
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var tr = new TableRow();
+            var td = new TableCell();
+            td.Text = "Hola";
+            tr.Cells.Add(td);
+            Table1.Rows.Add(tr);
 
+            GvListado.HeaderRow.TableSection = TableRowSection.TableHeader;
         }
 
         protected void BtnSaludar_Click(object sender, EventArgs e)
@@ -39,6 +45,21 @@ namespace UF2218
         protected void BtnDespedir_Click(object sender, EventArgs e)
         {
             CambiarMensaje("Adios");
+        }
+
+        protected void RefrescarRejilla(object sender, ObjectDataSourceStatusEventArgs e)
+        {
+            GvListado.DataBind();
+        }
+
+        protected void GvListado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FvPersona.ChangeMode(FormViewMode.Edit);
+        }
+
+        protected void LbAgregar_Click(object sender, EventArgs e)
+        {
+            FvPersona.ChangeMode(FormViewMode.Insert);
         }
     }
 }

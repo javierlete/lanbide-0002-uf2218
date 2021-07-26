@@ -12,7 +12,8 @@
 <body class="container">
     <form id="form1" runat="server">
         <div>
-            <asp:GridView CssClass="table table-hover table-bordered table-striped" ID="GvPersonas" runat="server" AutoGenerateColumns="False" DataSourceID="PersonasDataSource" DataKeyNames="Id" OnSelectedIndexChanged="GvPersonas_SelectedIndexChanged">
+            <asp:GridView CssClass="table table-hover table-bordered table-striped" ID="GvPersonas" runat="server" AutoGenerateColumns="False" DataSourceID="PersonasDataSource" DataKeyNames="Id" OnSelectedIndexChanged="GvPersonas_SelectedIndexChanged" OnDataBinding="GvPersonas_DataBinding">
+                <HeaderStyle CssClass="table-dark" />
                 <Columns>
                     <%--<asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />--%>
                     

@@ -16,8 +16,6 @@ namespace UF2218
             GvPersonas.UseAccessibleHeader = true;
 
             GvPersonas.HeaderRow.TableSection = TableRowSection.TableHeader;
-
-            GvPersonas.HeaderRow.CssClass = "table-dark";
         }
 
         protected void RefrescarGvPersonas(object sender, ObjectDataSourceStatusEventArgs e)
@@ -28,6 +26,11 @@ namespace UF2218
         protected void GvPersonas_SelectedIndexChanged(object sender, EventArgs e)
         {
             FvPersonas.ChangeMode(FormViewMode.Edit);
+        }
+
+        protected void GvPersonas_DataBinding(object sender, EventArgs e)
+        {
+
         }
     }
 }

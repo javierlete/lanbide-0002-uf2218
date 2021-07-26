@@ -24,7 +24,7 @@
                 </EmptyDataTemplate>
             </asp:GridView>
             <asp:ObjectDataSource ID="PersonasDataSource" runat="server" DataObjectTypeName="UF2218.Models.Persona" DeleteMethod="Borrar" InsertMethod="Insertar" SelectMethod="ObtenerTodas" TypeName="UF2218.Daos.PersonaDao" UpdateMethod="Modificar"></asp:ObjectDataSource>
-            <asp:FormView ID="FvPersonas" runat="server" DataSourceID="FormularioDataSource">
+            <asp:FormView ID="FvPersonas" runat="server" DataSourceID="FormularioDataSource" DataKeyNames="Id">
                 <EditItemTemplate>
                     Id:
                     <asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>' />

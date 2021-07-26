@@ -84,7 +84,7 @@
                     &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Nuevo" />
                 </ItemTemplate>
             </asp:FormView>
-            <asp:ObjectDataSource ID="FormularioDataSource" runat="server" DataObjectTypeName="UF2218.Models.Persona" DeleteMethod="Borrar" InsertMethod="Insertar" SelectMethod="ObtenerPorId" TypeName="UF2218.Daos.PersonaDao" UpdateMethod="Modificar">
+            <asp:ObjectDataSource ID="FormularioDataSource" runat="server" DataObjectTypeName="UF2218.Models.Persona" DeleteMethod="Borrar" InsertMethod="Insertar" SelectMethod="ObtenerPorId" TypeName="UF2218.Daos.PersonaDao" UpdateMethod="Modificar" OnDeleted="RefrescarGvPersonas" OnInserted="RefrescarGvPersonas" OnUpdated="RefrescarGvPersonas">
                 <SelectParameters>
                     <asp:ControlParameter ControlID="GvPersonas" Name="id" PropertyName="SelectedValue" Type="Int64" />
                 </SelectParameters>

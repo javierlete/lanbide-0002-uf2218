@@ -13,5 +13,10 @@ namespace UF2218
         {
 
         }
+
+        protected void RefrescarGvPersonas(object sender, ObjectDataSourceStatusEventArgs e)
+        {
+            GvPersonas.DataBind();
+        }
     }
 }

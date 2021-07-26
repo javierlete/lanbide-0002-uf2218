@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="UF2218.Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="EjemploControles.aspx.cs" Inherits="UF2218.Default" %>
 
 <!DOCTYPE html>
 
@@ -55,6 +55,9 @@
                 <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" />
                 &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
             </EditItemTemplate>
+            <HeaderTemplate>
+                Edición de persona
+            </HeaderTemplate>
             <InsertItemTemplate>
                 Id:
                 <asp:TextBox ID="IdTextBox" runat="server" Text='0' ReadOnly="true" />

@@ -12,6 +12,12 @@ namespace UF2218
         protected void Page_Load(object sender, EventArgs e)
         {
             FvPersonas.DefaultMode = FormViewMode.Insert;
+
+            GvPersonas.UseAccessibleHeader = true;
+
+            GvPersonas.HeaderRow.TableSection = TableRowSection.TableHeader;
+
+            GvPersonas.HeaderRow.CssClass = "table-dark";
         }
 
         protected void RefrescarGvPersonas(object sender, ObjectDataSourceStatusEventArgs e)

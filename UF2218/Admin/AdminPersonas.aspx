@@ -4,20 +4,56 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
+
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
 </head>
-<body>
+<body class="container">
     <form id="form1" runat="server">
         <div>
-            <asp:GridView ID="GvPersonas" runat="server" AutoGenerateColumns="False" DataSourceID="PersonasDataSource" DataKeyNames="Id" OnSelectedIndexChanged="GvPersonas_SelectedIndexChanged">
+            <asp:GridView CssClass="table table-hover table-bordered table-striped" ID="GvPersonas" runat="server" AutoGenerateColumns="False" DataSourceID="PersonasDataSource" DataKeyNames="Id" OnSelectedIndexChanged="GvPersonas_SelectedIndexChanged">
                 <Columns>
-                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
+                    <%--<asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />--%>
+                    
                     <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
                     <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
                     <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" SortExpression="Apellidos" />
-                    <asp:BoundField DataField="FechaNacimiento" HeaderText="FechaNacimiento" SortExpression="FechaNacimiento" />
+                    <asp:BoundField DataField="FechaNacimiento" HeaderText="FechaNacimiento" DataFormatString="{0:dd-MM-yyyy}" SortExpression="FechaNacimiento" />
                     <asp:BoundField DataField="Calificacion" HeaderText="Calificacion" SortExpression="Calificacion" />
+
+                    <asp:TemplateField ShowHeader="False">
+                        <ItemTemplate>
+                            <asp:LinkButton ID="EditButton"
+                                runat="server"
+                                CssClass="btn btn-primary"
+                                CommandName="Edit"
+                                Text="Modificar" />
+                            <asp:LinkButton ID="SelectButton"
+                                runat="server"
+                                CssClass="btn btn-secondary"
+                                CommandName="Select"
+                                Text="Seleccionar" />
+                            <asp:LinkButton ID="DeleteButton"
+                                CssClass="btn btn-danger"
+                                Text="Borrar"
+                                CommandName="Delete"
+                                runat="server" />
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:LinkButton ID="UpdateButton"
+                                runat="server"
+                                CssClass="btn btn-primary"
+                                CommandName="Update"
+                                Text="Modificar" />&nbsp;
+                            <asp:LinkButton ID="Cancel"
+                                runat="server"
+                                CssClass="btn btn-danger"
+                                CommandName="Cancel"
+                                Text="Cancelar" />
+                        </EditItemTemplate>
+                    </asp:TemplateField>
+                   
                 </Columns>
                 <EmptyDataTemplate>
                     No se han encontrado registros.
@@ -90,5 +126,7 @@
             </asp:ObjectDataSource>
         </div>
     </form>
+
+    <script src="/Scripts/bootstrap.bundle.min.js"></script>
 </body>
 </html>

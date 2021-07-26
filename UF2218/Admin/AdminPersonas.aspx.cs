@@ -11,12 +11,17 @@ namespace UF2218
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            FvPersonas.DefaultMode = FormViewMode.Insert;
         }
 
         protected void RefrescarGvPersonas(object sender, ObjectDataSourceStatusEventArgs e)
         {
             GvPersonas.DataBind();
+        }
+
+        protected void GvPersonas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FvPersonas.ChangeMode(FormViewMode.Edit);
         }
     }
 }

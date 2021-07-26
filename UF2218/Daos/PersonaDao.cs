@@ -29,7 +29,7 @@ namespace UF2218.Daos
 
         public static void Insertar(Persona persona)
         {
-            long id = personas.Keys.Last() + 1;
+            long id = personas.Keys.Count > 0 ? personas.Keys.Last() + 1 : 1;
             persona.Id = id;
             personas[id] = persona;
         }

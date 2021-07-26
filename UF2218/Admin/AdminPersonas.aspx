@@ -36,10 +36,10 @@
                     <asp:TextBox ID="ApellidosTextBox" runat="server" Text='<%# Bind("Apellidos") %>' />
                     <br />
                     FechaNacimiento:
-                    <asp:TextBox ID="FechaNacimientoTextBox" runat="server" Text='<%# Bind("FechaNacimiento") %>' />
+                    <asp:TextBox ID="FechaNacimientoTextBox" runat="server" Text='<%# Bind("FechaNacimiento", "{0:yyyy-MM-dd}") %>' TextMode="Date" />
                     <br />
                     Calificacion:
-                    <asp:TextBox ID="CalificacionTextBox" runat="server" Text='<%# Bind("Calificacion") %>' />
+                    <asp:TextBox ID="CalificacionTextBox" runat="server" Text='<%# Bind("Calificacion") %>' TextMode="Number" />
                     <br />
                     <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" />
                     &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
@@ -54,10 +54,10 @@
                     <asp:TextBox ID="ApellidosTextBox" runat="server" Text='<%# Bind("Apellidos") %>' />
                     <br />
                     FechaNacimiento:
-                    <asp:TextBox ID="FechaNacimientoTextBox" runat="server" Text='<%# Bind("FechaNacimiento") %>' />
+                    <asp:TextBox ID="FechaNacimientoTextBox" runat="server" Text='<%# Bind("FechaNacimiento", "{0:yyyy-MM-dd}") %>' TextMode="Date" />
                     <br />
                     Calificacion:
-                    <asp:TextBox ID="CalificacionTextBox" runat="server" Text='<%# Bind("Calificacion") %>' />
+                    <asp:TextBox ID="CalificacionTextBox" runat="server" Text='<%# Bind("Calificacion") %>' TextMode="Number" />
                     <br />
                     <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" />
                     &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />

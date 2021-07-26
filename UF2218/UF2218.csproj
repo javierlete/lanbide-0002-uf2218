@@ -67,18 +67,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Default.aspx" />
+    <Content Include="Admin\AdminPersonas.aspx" />
+    <Content Include="EjemploControles.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Daos\PersonaDao.cs" />
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Admin\AdminPersonas.aspx.cs">
+      <DependentUpon>AdminPersonas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
+    <Compile Include="Admin\AdminPersonas.aspx.designer.cs">
+      <DependentUpon>AdminPersonas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Daos\PersonaDao.cs" />
+    <Compile Include="EjemploControles.aspx.cs">
+      <DependentUpon>EjemploControles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EjemploControles.aspx.designer.cs">
+      <DependentUpon>EjemploControles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

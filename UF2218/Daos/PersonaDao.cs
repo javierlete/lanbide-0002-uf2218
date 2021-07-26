@@ -10,8 +10,8 @@ namespace UF2218.Daos
     public static class PersonaDao
     {
         private static readonly Dictionary<long, Persona> personas = new Dictionary<long, Persona>() {
-            { 1L, new Persona(1L, "Javier", "Lete") },
-            { 2L, new Persona(2L, "Pepe", "Pérez") }
+            { 1L, new Persona(1L, "Javier", "Lete", new DateTime(2003, 2, 1), 9) },
+            { 2L, new Persona(2L, "Pepe", "Pérez", new DateTime(2004, 3, 2), 6) }
         };
 
         public static IEnumerable<Persona> ObtenerTodas() => personas.Values;

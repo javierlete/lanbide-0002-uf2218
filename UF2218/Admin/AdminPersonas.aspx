@@ -12,6 +12,7 @@
         <div>
             <asp:GridView ID="GvPersonas" runat="server" AutoGenerateColumns="False" DataSourceID="PersonasDataSource">
                 <Columns>
+                    <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />
                     <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
                     <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
                     <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" SortExpression="Apellidos" />

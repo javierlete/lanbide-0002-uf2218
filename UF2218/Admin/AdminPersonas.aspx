@@ -27,7 +27,7 @@
             <asp:FormView ID="FvPersonas" runat="server" DataSourceID="FormularioDataSource" DataKeyNames="Id">
                 <EditItemTemplate>
                     Id:
-                    <asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>' />
+                    <asp:TextBox ID="IdTextBox" runat="server" Text='<%# Eval("Id") %>' ReadOnly="true" />
                     <br />
                     Nombre:
                     <asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' />
@@ -45,8 +45,7 @@
                     &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
                 </EditItemTemplate>
                 <InsertItemTemplate>
-                    Id:
-                    <asp:TextBox ID="IdTextBox" runat="server" Text='<%# Bind("Id") %>' />
+                    <asp:TextBox ID="IdTextBox" runat="server" Text='0' ReadOnly="true" Visible="false" />
                     <br />
                     Nombre:
                     <asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' />

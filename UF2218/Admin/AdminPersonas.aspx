@@ -109,7 +109,7 @@
                         <asp:Label CssClass="col-sm-2 col-form-label" ID="LblNombre" runat="server" Text="Nombre:" AssociatedControlID="NombreTextBox"></asp:Label>
                         <div class="col-sm-10">
                             <asp:TextBox CssClass="form-control" ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' />
-                            <asp:RequiredFieldValidator CssClass="text-danger" ID="RequiredFieldValidator1" runat="server" ErrorMessage="Es obligatorio rellenar el nombre" ControlToValidate="NombreTextBox" Display="Dynamic"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator CssClass="text-danger" ID="RequiredFieldValidator1" runat="server" ErrorMessage="Es obligatorio rellenar el nombre" ControlToValidate="NombreTextBox" Display="Dynamic" ValidationGroup="InsertarGroup"></asp:RequiredFieldValidator>
                         </div>
                     </div>
 
@@ -124,7 +124,7 @@
                         <asp:Label CssClass="col-4 col-md-2 col-form-label" ID="LblFechaNacimiento" runat="server" Text="Fecha de nacimiento:" AssociatedControlID="FechaNacimientoTextBox"></asp:Label>
                         <div class="col-8 col-md-10">
                             <asp:TextBox CssClass="form-control" ID="FechaNacimientoTextBox" runat="server" Text='<%# Bind("FechaNacimiento", "{0:yyyy-MM-dd}") %>' TextMode="Date" />
-                            <asp:CompareValidator CssClass="text-danger" runat="server" Type="Date" ControlToValidate="FechaNacimientoTextBox" ValueToCompare="1900-1-1" Operator="GreaterThanEqual" ErrorMessage="La fecha de nacimiento no puede ser tan antigua" />
+                            <asp:CompareValidator CssClass="text-danger" runat="server" Type="Date" ControlToValidate="FechaNacimientoTextBox" ValueToCompare="1900-1-1" Operator="GreaterThanEqual" ErrorMessage="La fecha de nacimiento no puede ser tan antigua" ValidationGroup="InsertarGroup" />
                         </div>
                     </div>
 
@@ -132,18 +132,18 @@
                         <asp:Label CssClass="col-4 col-sm-2 col-form-label" ID="LblCalificacion" runat="server" Text="Calificacion:" AssociatedControlID="CalificacionTextBox"></asp:Label>
                         <div class="col-8 col-sm-10">
                             <asp:TextBox CssClass="form-control" ID="CalificacionTextBox" runat="server" Text='<%# Bind("Calificacion") %>' />
-                            <asp:RangeValidator ID="RangeValidatorCalificacion" CssClass="text-danger" runat="server" Display="Dynamic" ControlToValidate="CalificacionTextBox" MaximumValue="10,00" MinimumValue="0,00" Type="Double" ErrorMessage="La calificación debe estar comprendida entre 0 y 10 inclusives" />
-                            <asp:RequiredFieldValidator CssClass="text-danger" runat="server" Display="Dynamic" ControlToValidate="CalificacionTextBox" ErrorMessage="Es obligatorio rellenar la calificación" />
+                            <asp:RangeValidator ID="RangeValidatorCalificacion" CssClass="text-danger" runat="server" Display="Dynamic" ControlToValidate="CalificacionTextBox" MaximumValue="10,00" MinimumValue="0,00" Type="Double" ErrorMessage="La calificación debe estar comprendida entre 0 y 10 inclusives" ValidationGroup="InsertarGroup" />
+                            <asp:RequiredFieldValidator CssClass="text-danger" runat="server" Display="Dynamic" ControlToValidate="CalificacionTextBox" ErrorMessage="Es obligatorio rellenar la calificación" ValidationGroup="InsertarGroup" />
                         </div>
                     </div>
                     <div class="row mb-3">
                         <div class="col-sm-10 offset-sm-2">
-                            <asp:LinkButton CssClass="btn btn-primary" ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" />
+                            <asp:LinkButton CssClass="btn btn-primary" ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" ValidationGroup="InsertarGroup" />
                             &nbsp;<asp:LinkButton CssClass="btn btn-danger" ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
                         </div>
                     </div>
 
-                    <asp:ValidationSummary CssClass="text-danger" runat="server" />
+                    <asp:ValidationSummary CssClass="text-danger" runat="server" ValidationGroup="InsertarGroup" />
 
                 </InsertItemTemplate>
                 <ItemTemplate>

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminPersonas.aspx.cs" Inherits="UF2218.AdminPersonas" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminPersonas.aspx.cs" Inherits="UF2218.AdminPersonas" UnobtrusiveValidationMode="None" %>
 
 <!DOCTYPE html>
 
@@ -109,6 +109,7 @@
                         <asp:Label CssClass="col-sm-2 col-form-label" ID="LblNombre" runat="server" Text="Nombre:" AssociatedControlID="NombreTextBox"></asp:Label>
                         <div class="col-sm-10">
                             <asp:TextBox CssClass="form-control" ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' />
+                            <asp:RequiredFieldValidator CssClass="text-danger" ID="RequiredFieldValidator1" runat="server" ErrorMessage="Es obligatorio rellenar el nombre" ControlToValidate="NombreTextBox" Display="Dynamic"></asp:RequiredFieldValidator>
                         </div>
                     </div>
 
@@ -123,16 +124,18 @@
                         <asp:Label CssClass="col-4 col-md-2 col-form-label" ID="LblFechaNacimiento" runat="server" Text="Fecha de nacimiento:" AssociatedControlID="FechaNacimientoTextBox"></asp:Label>
                         <div class="col-8 col-md-10">
                             <asp:TextBox CssClass="form-control" ID="FechaNacimientoTextBox" runat="server" Text='<%# Bind("FechaNacimiento", "{0:yyyy-MM-dd}") %>' TextMode="Date" />
+                            <asp:CompareValidator CssClass="text-danger" runat="server" Type="Date" ControlToValidate="FechaNacimientoTextBox" ValueToCompare="1900-1-1" Operator="GreaterThanEqual" ErrorMessage="La fecha de nacimiento no puede ser tan antigua" />
                         </div>
                     </div>
 
                     <div class="row mb-3">
                         <asp:Label CssClass="col-4 col-sm-2 col-form-label" ID="LblCalificacion" runat="server" Text="Calificacion:" AssociatedControlID="CalificacionTextBox"></asp:Label>
                         <div class="col-8 col-sm-10">
-                            <asp:TextBox CssClass="form-control" ID="CalificacionTextBox" runat="server" Text='<%# Bind("Calificacion") %>' TextMode="Number" />
+                            <asp:TextBox CssClass="form-control" ID="CalificacionTextBox" runat="server" Text='<%# Bind("Calificacion") %>' />
+                            <asp:RangeValidator ID="RangeValidatorCalificacion" CssClass="text-danger" runat="server" Display="Dynamic" ControlToValidate="CalificacionTextBox" MaximumValue="10,00" MinimumValue="0,00" Type="Double" ErrorMessage="La calificación debe estar comprendida entre 0 y 10 inclusives" />
+                            <asp:RequiredFieldValidator CssClass="text-danger" runat="server" Display="Dynamic" ControlToValidate="CalificacionTextBox" ErrorMessage="Es obligatorio rellenar la calificación" />
                         </div>
                     </div>
-
                     <div class="row mb-3">
                         <div class="col-sm-10 offset-sm-2">
                             <asp:LinkButton CssClass="btn btn-primary" ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" />
@@ -140,9 +143,11 @@
                         </div>
                     </div>
 
+                    <asp:ValidationSummary CssClass="text-danger" runat="server" />
+
                 </InsertItemTemplate>
                 <ItemTemplate>
-                    <%--Id:
+                    Id:
                     <asp:Label ID="IdLabel" runat="server" Text='<%# Bind("Id") %>' />
                     <br />
                     Nombre:
@@ -159,7 +164,7 @@
                     <br />
                     <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Editar" />
                     &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Eliminar" />
-                    &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Nuevo" />--%>
+                    &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Nuevo" />
                 </ItemTemplate>
             </asp:FormView>
             <asp:ObjectDataSource ID="FormularioDataSource" runat="server" DataObjectTypeName="UF2218.Models.Persona" DeleteMethod="Borrar" InsertMethod="Insertar" SelectMethod="ObtenerPorId" TypeName="UF2218.Daos.PersonaDao" UpdateMethod="Modificar" OnDeleted="RefrescarGvPersonas" OnInserted="RefrescarGvPersonas" OnUpdated="RefrescarGvPersonas">

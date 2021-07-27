@@ -142,7 +142,7 @@
 
                 </InsertItemTemplate>
                 <ItemTemplate>
-                    Id:
+                    <%--Id:
                     <asp:Label ID="IdLabel" runat="server" Text='<%# Bind("Id") %>' />
                     <br />
                     Nombre:
@@ -159,7 +159,7 @@
                     <br />
                     <asp:LinkButton ID="EditButton" runat="server" CausesValidation="False" CommandName="Edit" Text="Editar" />
                     &nbsp;<asp:LinkButton ID="DeleteButton" runat="server" CausesValidation="False" CommandName="Delete" Text="Eliminar" />
-                    &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Nuevo" />
+                    &nbsp;<asp:LinkButton ID="NewButton" runat="server" CausesValidation="False" CommandName="New" Text="Nuevo" />--%>
                 </ItemTemplate>
             </asp:FormView>
             <asp:ObjectDataSource ID="FormularioDataSource" runat="server" DataObjectTypeName="UF2218.Models.Persona" DeleteMethod="Borrar" InsertMethod="Insertar" SelectMethod="ObtenerPorId" TypeName="UF2218.Daos.PersonaDao" UpdateMethod="Modificar" OnDeleted="RefrescarGvPersonas" OnInserted="RefrescarGvPersonas" OnUpdated="RefrescarGvPersonas">

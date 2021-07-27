@@ -16,7 +16,7 @@
                 <HeaderStyle CssClass="table-dark" />
                 <Columns>
                     <%--<asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />--%>
-                    
+
                     <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
                     <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
                     <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" SortExpression="Apellidos" />
@@ -54,50 +54,93 @@
                                 Text="Cancelar" />
                         </EditItemTemplate>
                     </asp:TemplateField>
-                   
+
                 </Columns>
                 <EmptyDataTemplate>
                     No se han encontrado registros.
                 </EmptyDataTemplate>
             </asp:GridView>
             <asp:ObjectDataSource ID="PersonasDataSource" runat="server" DataObjectTypeName="UF2218.Models.Persona" DeleteMethod="Borrar" InsertMethod="Insertar" SelectMethod="ObtenerTodas" TypeName="UF2218.Daos.PersonaDao" UpdateMethod="Modificar"></asp:ObjectDataSource>
-            <asp:FormView ID="FvPersonas" runat="server" DataSourceID="FormularioDataSource" DataKeyNames="Id">
+            <asp:FormView RenderOuterTable="false" ID="FvPersonas" runat="server" DataSourceID="FormularioDataSource" DataKeyNames="Id">
                 <EditItemTemplate>
-                    Id:
-                    <asp:TextBox ID="IdTextBox" runat="server" Text='<%# Eval("Id") %>' ReadOnly="true" />
-                    <br />
-                    Nombre:
-                    <asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' />
-                    <br />
-                    Apellidos:
-                    <asp:TextBox ID="ApellidosTextBox" runat="server" Text='<%# Bind("Apellidos") %>' />
-                    <br />
-                    FechaNacimiento:
-                    <asp:TextBox ID="FechaNacimientoTextBox" runat="server" Text='<%# Bind("FechaNacimiento", "{0:yyyy-MM-dd}") %>' TextMode="Date" />
-                    <br />
-                    Calificacion:
-                    <asp:TextBox ID="CalificacionTextBox" runat="server" Text='<%# Bind("Calificacion") %>' TextMode="Number" />
-                    <br />
-                    <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" />
-                    &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
+                    <div class="row mb-3">
+                        <asp:Label CssClass="col-sm-2 col-form-label" ID="LblIdTextBox" runat="server" Text="Id:" AssociatedControlID="IdTextBox"></asp:Label>
+                        <div class="col-sm-10">
+                            <asp:TextBox CssClass="form-control" ID="IdTextBox" runat="server" Text='<%# Eval("Id") %>' ReadOnly="true" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <asp:Label CssClass="col-sm-2 col-form-label" ID="LblNombre" runat="server" Text="Nombre:" AssociatedControlID="NombreTextBox"></asp:Label>
+                        <div class="col-sm-10">
+                            <asp:TextBox CssClass="form-control" ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' />
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <asp:Label CssClass="col-sm-2 col-form-label" ID="LblApellidos" runat="server" Text="Apellidos:" AssociatedControlID="ApellidosTextBox"></asp:Label>
+                        <div class="col-sm-10">
+                            <asp:TextBox CssClass="form-control" ID="ApellidosTextBox" runat="server" Text='<%# Bind("Apellidos") %>' />
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <asp:Label CssClass="col-4 col-md-2 col-form-label" ID="LblFechaNacimiento" runat="server" Text="Fecha de nacimiento:" AssociatedControlID="FechaNacimientoTextBox"></asp:Label>
+                        <div class="col-8 col-md-10">
+                            <asp:TextBox CssClass="form-control" ID="FechaNacimientoTextBox" runat="server" Text='<%# Bind("FechaNacimiento", "{0:yyyy-MM-dd}") %>' TextMode="Date" />
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <asp:Label CssClass="col-4 col-sm-2 col-form-label" ID="LblCalificacion" runat="server" Text="Calificacion:" AssociatedControlID="CalificacionTextBox"></asp:Label>
+                        <div class="col-8 col-sm-10">
+                            <asp:TextBox CssClass="form-control" ID="CalificacionTextBox" runat="server" Text='<%# Bind("Calificacion") %>' TextMode="Number" />
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-10 offset-sm-2">
+                            <asp:LinkButton CssClass="btn btn-primary" ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Actualizar" />
+                    &nbsp;<asp:LinkButton CssClass="btn btn-danger" ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
+                        </div>
+                    </div>
                 </EditItemTemplate>
                 <InsertItemTemplate>
                     <asp:TextBox ID="IdTextBox" runat="server" Text='0' ReadOnly="true" Visible="false" />
-                    <br />
-                    Nombre:
-                    <asp:TextBox ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' />
-                    <br />
-                    Apellidos:
-                    <asp:TextBox ID="ApellidosTextBox" runat="server" Text='<%# Bind("Apellidos") %>' />
-                    <br />
-                    FechaNacimiento:
-                    <asp:TextBox ID="FechaNacimientoTextBox" runat="server" Text='<%# Bind("FechaNacimiento", "{0:yyyy-MM-dd}") %>' TextMode="Date" />
-                    <br />
-                    Calificacion:
-                    <asp:TextBox ID="CalificacionTextBox" runat="server" Text='<%# Bind("Calificacion") %>' TextMode="Number" />
-                    <br />
-                    <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" />
-                    &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
+                    <div class="row mb-3">
+                        <asp:Label CssClass="col-sm-2 col-form-label" ID="LblNombre" runat="server" Text="Nombre:" AssociatedControlID="NombreTextBox"></asp:Label>
+                        <div class="col-sm-10">
+                            <asp:TextBox CssClass="form-control" ID="NombreTextBox" runat="server" Text='<%# Bind("Nombre") %>' />
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <asp:Label CssClass="col-sm-2 col-form-label" ID="LblApellidos" runat="server" Text="Apellidos:" AssociatedControlID="ApellidosTextBox"></asp:Label>
+                        <div class="col-sm-10">
+                            <asp:TextBox CssClass="form-control" ID="ApellidosTextBox" runat="server" Text='<%# Bind("Apellidos") %>' />
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <asp:Label CssClass="col-4 col-md-2 col-form-label" ID="LblFechaNacimiento" runat="server" Text="Fecha de nacimiento:" AssociatedControlID="FechaNacimientoTextBox"></asp:Label>
+                        <div class="col-8 col-md-10">
+                            <asp:TextBox CssClass="form-control" ID="FechaNacimientoTextBox" runat="server" Text='<%# Bind("FechaNacimiento", "{0:yyyy-MM-dd}") %>' TextMode="Date" />
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <asp:Label CssClass="col-4 col-sm-2 col-form-label" ID="LblCalificacion" runat="server" Text="Calificacion:" AssociatedControlID="CalificacionTextBox"></asp:Label>
+                        <div class="col-8 col-sm-10">
+                            <asp:TextBox CssClass="form-control" ID="CalificacionTextBox" runat="server" Text='<%# Bind("Calificacion") %>' TextMode="Number" />
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-sm-10 offset-sm-2">
+                            <asp:LinkButton CssClass="btn btn-primary" ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insertar" />
+                            &nbsp;<asp:LinkButton CssClass="btn btn-danger" ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancelar" />
+                        </div>
+                    </div>
+
                 </InsertItemTemplate>
                 <ItemTemplate>
                     Id:

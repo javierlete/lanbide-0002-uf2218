@@ -16,8 +16,7 @@
                 <HeaderStyle CssClass="table-dark" />
                 <Columns>
                     <%--<asp:CommandField ShowDeleteButton="True" ShowEditButton="True" ShowSelectButton="True" />--%>
-
-                    <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" />
+                    <asp:BoundField DataField="Id" HeaderText="Id" SortExpression="Id" ReadOnly="true" />
                     <asp:BoundField DataField="Nombre" HeaderText="Nombre" SortExpression="Nombre" />
                     <asp:BoundField DataField="Apellidos" HeaderText="Apellidos" SortExpression="Apellidos" />
                     <asp:BoundField DataField="FechaNacimiento" HeaderText="FechaNacimiento" DataFormatString="{0:dd-MM-yyyy}" SortExpression="FechaNacimiento" />
@@ -25,23 +24,23 @@
 
                     <asp:TemplateField ShowHeader="False">
                         <ItemTemplate>
-                            <asp:LinkButton ID="EditButton"
+                            <%--<asp:LinkButton ID="EditButton"
                                 runat="server"
                                 CssClass="btn btn-primary"
                                 CommandName="Edit"
-                                Text="Modificar" />
+                                Text="Modificar" />--%>
                             <asp:LinkButton ID="SelectButton"
                                 runat="server"
-                                CssClass="btn btn-secondary"
+                                CssClass="btn btn-primary"
                                 CommandName="Select"
-                                Text="Seleccionar" />
+                                Text="Modificar" />
                             <asp:LinkButton ID="DeleteButton"
                                 CssClass="btn btn-danger"
                                 Text="Borrar"
                                 CommandName="Delete"
                                 runat="server" />
                         </ItemTemplate>
-                        <EditItemTemplate>
+                        <%--<EditItemTemplate>
                             <asp:LinkButton ID="UpdateButton"
                                 runat="server"
                                 CssClass="btn btn-primary"
@@ -52,7 +51,7 @@
                                 CssClass="btn btn-danger"
                                 CommandName="Cancel"
                                 Text="Cancelar" />
-                        </EditItemTemplate>
+                        </EditItemTemplate>--%>
                     </asp:TemplateField>
 
                 </Columns>
